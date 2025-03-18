@@ -338,3 +338,56 @@ int main()
 	std::cout << singleton::accessnonstaticmember(sing);
 	std::cout << sing;*/
 }
+/* remove duplicate spaces in string and modify it*/
+int main()
+{
+	std::string name = "saket  Manoj  jatin       rfvnorfv uvrel  mnojkj     n m  i    iojkn";
+	//removeDuplicateWhitespace(name);
+	//std::cout << name << "\n";
+	int count = 0;
+	bool duplicatspacefound = false;
+	std::string makeitclear = "";
+	
+	for (int i = 0; i < name.size(); i++)
+	{
+		duplicatspacefound = false;
+		if (name[i] == ' ')
+		{
+			count++;
+		}
+		if (count > 1)
+		{
+			count = 0;
+			if (name[i + 1] == ' ')
+			{
+				count++;
+			}
+			duplicatspacefound = true;
+			
+		}
+		if (duplicatspacefound)
+		{
+			continue;
+		}
+		makeitclear += name[i];
+	}
+	std::cout << makeitclear << " ";
+}
+
+//saket sharma
+//without creating anpother array 
+// void removeDuplicateWhitespace(std::string& str) {
+// 	size_t n = str.length();
+// 	size_t j = 0;  // Pointer for the new length
+
+// 	for (size_t i = 0; i < n; ++i) {
+// 		// If the current character is not a space or it's the first character,
+// 		// move it to the new position.
+// 		if (str[i] != ' ' || (i > 0 && str[i - 1] != ' ')) {
+// 			str[j++] = str[i];
+// 		}
+// 	}
+
+// 	// Resize the string to the new length
+// 	str.resize(j);
+// }
